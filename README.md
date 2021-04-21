@@ -1,5 +1,5 @@
 # Listttttt App
-This application allows users to make lists for keeping bike inventory. Future versions will allow lists of any kind and will be able to use as a planner.
+This application allows users to make lists for keeping bike inventory.
 
 ## Important links
 [Listttttt App]()
