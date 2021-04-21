@@ -78,5 +78,21 @@ router.delete('/bikes/:id', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+// SHOW
+// GET /bikes/:id
+router.get('/bikes/:id', requireToken, (req, res, next) => {
+  // create bikeId variable with req.params.id
+  const bikeId = req.params.id
+
+  // find the bike by the id
+  Bike.findById(bikeId)
+    // if not the correct id throw 404
+    .then(handle404)
+    // if correct id respond with 200 and show the bike in JSON
+    .then(bike => res.status(200).json({ bike: bike.toObject() }))
+    // if an error pass it to error handler
+    .catch(next)
+})
+
 // export router
 module.exports = router
