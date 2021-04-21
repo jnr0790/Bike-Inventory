@@ -45,7 +45,11 @@ router.post('/bikes', requireToken, (req, res, next) => {
 // INDEX
 // GET /bikes
 router.get('/bikes', requireToken, (req, res, next) => {
-  Bike.find()
+  // variable that references `req.user.id`
+  const userId = req.user.id
+
+  // only index current users bikes
+  Bike.find({ owner: userId })
     // when successful return all bikes in the owned list
     .then(bikes => {
       return bikes.map(bike => bike.toObject())
