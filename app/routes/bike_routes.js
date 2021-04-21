@@ -42,5 +42,18 @@ router.post('/bikes', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+// INDEX
+// GET /bikes
+router.get('/bikes', requireToken, (req, res, next) => {
+  Bike.find()
+    // when successful return all bikes in the owned list
+    .then(bikes => {
+      return bikes.map(bike => bike.toObject())
+    })
+    // respond with 200 status and make bikes JSON object
+    .then(bikes => res.status(200).json({ bikes }))
+    .catch(next)
+})
+
 // export router
 module.exports = router
