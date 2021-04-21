@@ -1,8 +1,8 @@
-# Listttttt App
+# Bike Inventory App
 This application allows users to make lists for keeping bike inventory.
 
 ## Important links
-[Listttttt App]()
+[Bike Inventory App]()
 
 ### User Stories
 - As a user I want to sign in/up
