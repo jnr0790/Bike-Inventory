@@ -24,7 +24,7 @@ This application allows users to make lists for keeping bike inventory. Future v
 
 
 ### Wireframe
-![Wireframe](https://imgur.com/s4oSxFq)
+![Wireframe](https://i.imgur.com/s4oSxFq.png)
 
 ### ERD
-![ERD](https://imgur.com/RJyF33w)
+![ERD](https://i.imgur.com/RJyF33w.png)
