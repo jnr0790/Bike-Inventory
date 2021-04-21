@@ -94,5 +94,33 @@ router.get('/bikes/:id', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+// UPDATE
+// PATCH /bikes/:id
+router.patch('/bikes/:id', requireToken, (req, res, next) => {
+  // create bikeId variable with req.params.id
+  const bikeId = req.params.id
+  // create bikeData variable with req.bode.bike
+  const bikeData = req.body.bike
+
+  // if the client attempts to change the `owner` property by including a new
+  // owner, prevent that by deleting that key/value pair
+  delete bikeData.owner
+
+  // find the bike by the id
+  Bike.findById(bikeId)
+    // if not the correct id throw 404
+    .then(handle404)
+    // if correct bikeId make sure it's the owner of that bike with requireOwnership
+    .then(bike => {
+      requireOwnership(req, bike)
+      // delete the bike if owner is verified
+      return bike.updateOne(bikeData)
+    })
+    // send back 204 no content if delete happened
+    .then(() => res.sendStatus(204))
+    // if an error pass it to error handler
+    .catch(next)
+})
+
 // export router
 module.exports = router
