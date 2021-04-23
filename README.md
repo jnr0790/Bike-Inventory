@@ -2,7 +2,8 @@
 This application allows users to make lists for keeping bike inventory.
 
 ## Important links
-[Bike Inventory App]()
+- [Bike Inventory](https://jnr0790.github.io/BikeInventory-client/)
+- [Bike Inventory GitHub](https://github.com/jnr0790/BikeInventory-client)
 
 ### User Stories
 - As a user I want to sign in/up
